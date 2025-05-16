@@ -9,9 +9,9 @@ code_to_region = {
     'COL_5001610001OD': '경기',
     'COL_5012410001OD': '인천',
     'COL_5002510001OD': '부산',
-    'COL_5016510001OD': '대전',
-    'COL_5015910001OD': '광주',
     'COL_5015010001OD': '대구',
+    'COL_5015910001OD': '광주',
+    'COL_5016510001OD': '대전',
     'COL_5017110001OD': '울산',
     'COL_5003310001OD': '세종',
     'COL_5017710001OD': '강원',
@@ -95,9 +95,9 @@ def main():
     st.markdown('<h4>📈 주간아파트동향 (한국부동산원)</h4>', unsafe_allow_html=True)
     col1, col2 = st.columns(2)
     with col1:
-        type_option = st.selectbox('📊 거래유형', ['매매', '전세'])
-    with col2:
         region_option = st.selectbox('🏢 지역선택', list(region_to_code.keys()))
+    with col2:
+        type_option = st.selectbox('📊 거래유형', ['매매', '전세'])
     with st.spinner('데이터 불러오는 중...'):
         df = get_data(type_option)
 
@@ -131,7 +131,7 @@ def main():
                 title=title_text
             )
             fig.update_layout(
-                height=400,
+                height=350,
                 title=dict(text=title_text, font=dict(size=18)),
                 xaxis_title='',
                 yaxis=dict(
