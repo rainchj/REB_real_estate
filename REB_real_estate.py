@@ -151,7 +151,7 @@ def main():
                 annotation_position="top left",
                 annotation_font_color="red"
             )
-            st.plotly_chart(fig, use_container_width=True)
+            st.plotly_chart(fig, use_container_width=True, config={"displayModeBar": False})
         else:
             st.error(f"'{region_option}' 데이터가 존재하지 않습니다.")
 
